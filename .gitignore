@@ -1,59 +1,132 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+############################################################
+# OS / SYSTEM FILES
+############################################################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# Visual Studio Code
+############################################################
+# IDEs / EDITORS
+############################################################
+.vs/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
+.idea/
+.project
+.classpath
+.settings/
+.c9/
+*.launch
+*.sublime-workspace
+.history/
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+############################################################
+# LOGS
+############################################################
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################################################
+# NODE / ANGULAR
+############################################################
+node_modules/
+dist/
+out-tsc/
+.angular/
+.angular/cache/
+coverage/
+tmp/
+libpeerconnection.log
 testem.log
-/typings
+typings/
 
-# System files
-.DS_Store
-Thumbs.db
-.vs/
-
-# .NET
+############################################################
+# .NET / VISUAL STUDIO
+############################################################
 **/bin/
 **/obj/
-.vs/
-
-# Visual Studio
 *.user
 *.suo
 *.cache
-*.log
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.VC.VC.opendb
 
-# Angular / Node
-node_modules/
+############################################################
+# PYTHON
+############################################################
+# Byte-compiled / optimized files
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python build artifacts
+build/
 dist/
-.angular/
+develop-eggs/
+eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.pyre/
+.ruff_cache/
+
+############################################################
+# DATABASES / RUNTIME FILES
+############################################################
+*.db
+*.sqlite
+*.sqlite3
+*.pid
+
+############################################################
+# ENV / SECRETS
+############################################################
+.env
+.env.*
+!.env.example
+
+############################################################
+# TEMP / MISC
+############################################################
+*.tmp
+*.swp
+*.bak
+*.orig
+*.old
+.cache/
+
+
+# Python bytecode
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
