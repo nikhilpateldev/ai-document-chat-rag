@@ -1,0 +1,42 @@
+<div class="chat">
+  <div class="messages">
+
+    <div
+      *ngFor="let m of messages()"
+      class="bubble"
+      [class.user]="m.role === 'user'"
+      [class.ai]="m.role === 'assistant'"
+    >
+      <!-- Message content -->
+      <p class="content">
+        {{ m.content }}
+        <span
+          *ngIf="m.role === 'assistant' && loading()"
+          class="cursor"
+        >▍</span>
+      </p>
+
+      <!-- Confidence (after completion) -->
+      <small *ngIf="m.confidence && !loading()">
+        Confidence: {{ m.confidence | number:'1.2-2' }}
+      </small>
+
+      <!-- Sources (after completion) -->
+      <ul *ngIf="m.sources && !loading()" class="sources">
+        <li *ngFor="let s of m.sources">
+          {{ s.document }} – page {{ s.page }}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Input -->
+  <input
+    #q
+    placeholder="Ask something"
+    value="what is the use of pdflatex"
+    [disabled]="loading()"
+    (keydown.enter)="ask(q.value); q.value=''"
+  />
+</div>

@@ -1,0 +1,21 @@
+.ai {
+    background: #f3f4f6;
+  }
+  
+  .cursor {
+    animation: blink 1s steps(2, start) infinite;
+  }
+  
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+  
+  .sources {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  
