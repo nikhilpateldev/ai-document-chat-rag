@@ -14,4 +14,6 @@ and chat with context-aware memory.
 ## Run
 ```bash
 docker-compose up --build
+.venv\Scripts\activate
+python -m uvicorn app.main:app --reload
 ```
