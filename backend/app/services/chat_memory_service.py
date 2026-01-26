@@ -14,7 +14,6 @@ class ChatMemoryService:
             "timestamp": datetime.utcnow().isoformat()
         })
 
-        # Trim history
         if len(self._store[conversation_id]) > MAX_HISTORY * 2:
             self._store[conversation_id] = self._store[conversation_id][-MAX_HISTORY * 2:]
 

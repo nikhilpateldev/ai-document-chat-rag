@@ -16,7 +16,6 @@ def setup_logging():
     root.handlers.clear()
     root.addHandler(handler)
 
-    # Force uvicorn loggers to propagate
     logging.getLogger("uvicorn").propagate = True
     logging.getLogger("uvicorn.error").propagate = True
     logging.getLogger("uvicorn.access").propagate = True
