@@ -15,21 +15,20 @@ def hybrid_search(
         limit=vector_k
     )
 
-    bm25_hits = bm25.search(
-        query=query,
-        limit=bm25_k
-    )
+    # bm25_hits = bm25.search(
+    #     query=query,
+    #     limit=bm25_k
+    # )
 
-    # Merge + dedupe by chunk_id
     merged = {}
 
     for hit in vector_hits:
         merged[hit["chunk_id"]] = hit
 
-    for hit in bm25_hits:
-        if hit["chunk_id"] not in merged:
-            merged[hit["chunk_id"]] = hit
-        else:
-            merged[hit["chunk_id"]]["bm25_score"] = hit["bm25_score"]
+    # for hit in bm25_hits:
+    #     if hit["chunk_id"] not in merged:
+    #         merged[hit["chunk_id"]] = hit
+    #     else:
+    #         merged[hit["chunk_id"]]["bm25_score"] = hit["bm25_score"]
 
     return list(merged.values())

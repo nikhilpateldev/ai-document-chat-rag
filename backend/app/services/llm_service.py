@@ -17,7 +17,7 @@ def stream_generate_answer(prompt: str) -> Iterator[str]:
             "stream": True
         },
         stream=True,
-        timeout=120
+        timeout=1200
     ) as resp:
         resp.raise_for_status()
 
@@ -30,11 +30,9 @@ def stream_generate_answer(prompt: str) -> Iterator[str]:
             except json.JSONDecodeError:
                 continue
 
-            # 🔚 End of stream
             if data.get("done") is True:
                 break
 
-            # ✅ THIS is the correct field for /api/generate
             token = data.get("response")
 
             if token is not None:

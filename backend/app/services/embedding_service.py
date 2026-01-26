@@ -15,7 +15,7 @@ class EmbeddingService:
                 f"{settings.OLLAMA_URL}/api/embed",
                 json={
                     "model": "nomic-embed-text",
-                    "input": chunk.content  # ✅ STRING
+                    "input": chunk.content
                 },
                 timeout=60
             )
@@ -32,7 +32,7 @@ class EmbeddingService:
                     f"{settings.OLLAMA_URL}/api/embed",
                     json={
                         "model": "nomic-embed-text",
-                        "input": input  # ✅ STRING
+                        "input": input
                     },
                     timeout=60
                 )
