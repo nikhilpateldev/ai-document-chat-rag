@@ -45,10 +45,8 @@ def stream_rag_answer(conversation_id, question, top_k=5):
     history = memory.get_history(conversation_id)
     chat_history = format_chat_history(history)
 
-    # 1️⃣ Embed query (nomic-embed-text)
     query_vector = embedding_service.embed_query(question)
 
-    # 2️⃣ Hybrid recall (BM25 + vector)
     chunks = hybrid_search(
         query=question,
         query_vector=query_vector,
@@ -56,14 +54,12 @@ def stream_rag_answer(conversation_id, question, top_k=5):
         bm25_k=20
     )
 
-    # 3️⃣ Re-rank (precision)
     # chunks = reranker.rerank(
     #     query_vector=query_vector,
     #     chunks=chunks,
     #     top_n=top_k
     # )
 
-    # 4️⃣ Build context from BEST chunks
     context, source_map = build_context_with_sources(chunks)
 
     prompt = build_prompt(context, question, chat_history)

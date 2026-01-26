@@ -28,7 +28,7 @@ class QdrantStore:
             self.client.create_collection(
                 collection_name=COLLECTION_NAME,
                 vectors_config=VectorParams(
-                    size=768,  # nomic-embed-text
+                    size=768,
                     distance=Distance.COSINE
                 )
             )
@@ -75,14 +75,13 @@ class QdrantStore:
             collection_name=COLLECTION_NAME,
             query=query_vector,
             limit=limit,
-            with_payload=True   # 👈 important
+            with_payload=True
         )
 
         return [
                     {
                         "score": point.score,
 
-                        # 👇 actual text content (nested)
                         "content": point.payload.get("content", {}).get("content"),
 
                         "document_id": point.payload.get("document_id"),
